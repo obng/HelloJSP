@@ -1,11 +1,6 @@
 package com.yedam.common;
 
-import com.yedam.control.AddBoardControl;
-import com.yedam.control.BoardControl;
-import com.yedam.control.BoardListControl;
-import com.yedam.control.ModifyBoardControl;
-import com.yedam.control.ModifyFormControl;
-import com.yedam.control.RegisterControl;
+import com.yedam.control.*;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -38,6 +33,14 @@ public class FrontController extends HttpServlet{
 		map.put("/addBoard.do", new AddBoardControl()); // 등록처리
 		map.put("/modifyForm.do", new ModifyFormControl());
 		map.put("/modifyBoard.do", new ModifyBoardControl());
+		map.put("/removeBoard.do", new RemoveBoardControl());
+
+		// 회원 관련
+		map.put("/signForm.do", new SignFormControl());
+		map.put("/signup.do", new SignUpControl());
+		map.put("/loginForm.do", new LoginFormControl());
+		map.put("/login.do", new LoginControl());
+		map.put("/logout.do", new LogoutControl());
 	}
 	
 	@Override

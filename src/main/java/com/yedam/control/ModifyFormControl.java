@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.yedam.common.Control;
 import com.yedam.service.BoardService;
@@ -21,11 +22,28 @@ public class ModifyFormControl implements Control {
 		// DB 조회
 		BoardService svc = new BoardServiceImpl();
 		BoardVO board = svc.searchBoard(Integer.parseInt(bno));
-		
+
+		// 권한 확인 (로그인 id vs 작성자 id)
+		HttpSession session = req.getSession();
+		String logId = (String) session.getAttribute("logId");
+
+		if (logId != null && logId.equals(board.getWriter())) {
+
+
 		// view 영역(jsp)로 값을 전달
-		req.setAttribute("board_lnfo", board);
-		
+		req.setAttribute("board_info", board);
 		req.getRequestDispatcher("WEB-INF/html/modify_board.jsp").forward(req, resp);
+
+		}
+		else {
+			// 권한 없을 경우
+			req.setAttribute("board_info", board);
+			req.setAttribute("msg", "권한이 없습니다.");
+
+			// 요청 재지정
+			req.getRequestDispatcher("WEB-INF/html/board.jsp").forward(req, resp);
+		}
+
 	}
 
 }

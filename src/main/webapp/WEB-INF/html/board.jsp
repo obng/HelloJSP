@@ -6,6 +6,12 @@
 <jsp:include page="includes/header.jsp" />
 
 <h3>글상세화면</h3>
+<%-- msg 전달값이 있으면 메세지 출력 --%>
+<c:if test="${!empty msg}">
+        <div style="color: red">${msg}</div>
+</c:if>
+
+
 <form action="modifyForm.do">
     <input type="hidden" value="${board_info.boardNo }" name="bno">
     <table class="table">
@@ -35,7 +41,8 @@
         <tr>
             <td colspan="4" align="center">
                 <input type="submit" value="수정" class="btn btn-success">
-                <button type="button" class="btn btn-danger">삭제</button>
+                <button type="button" class="btn btn-danger"
+                ${logId eq board_info.writer ? '' : 'disabled'}>삭제</button>
             </td>
         </tr>
     </table>
