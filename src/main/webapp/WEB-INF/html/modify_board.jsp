@@ -3,11 +3,11 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<jsp:include page="includes/header.jsp" />
 
 <h3>글수정화면</h3>
 <form action="modifyBoard.do">
-    <input type="hidden" value="${board_info.boardNo }" name="bno" />
+    <input type="hidden" value="${board_info.boardNo }" name="bno">
+    <input type="hidden" value="${page}" name="page">
     <table class="table">
         <tr>
             <th>글번호</th>
@@ -44,5 +44,3 @@
         </tr>
     </table>
 </form>
-
-<jsp:include page="includes/footer.jsp" />

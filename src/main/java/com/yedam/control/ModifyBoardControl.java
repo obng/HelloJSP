@@ -21,6 +21,7 @@ public class ModifyBoardControl implements Control {
 		String title = req.getParameter("title");
 		String content = req.getParameter("content");
 		String bno = req.getParameter("bno");
+		String page = req.getParameter("page");
 		
 		BoardVO param = new BoardVO();
 		
@@ -30,7 +31,7 @@ public class ModifyBoardControl implements Control {
 
 		BoardService svc = new BoardServiceImpl();
 		if (svc.modifyBoard(param)) {
-			resp.sendRedirect("boardList.do");
+			resp.sendRedirect("boardList.do?page=" + page);
 		}
 		else {
 			System.out.println("에러발생");

@@ -33,7 +33,7 @@ public class FrontController extends HttpServlet{
 		map.put("/addBoard.do", new AddBoardControl()); // 등록처리
 		map.put("/modifyForm.do", new ModifyFormControl());
 		map.put("/modifyBoard.do", new ModifyBoardControl());
-		map.put("/removeBoard.do", new RemoveBoardControl());
+
 
 		// 회원 관련
 		map.put("/signForm.do", new SignFormControl());

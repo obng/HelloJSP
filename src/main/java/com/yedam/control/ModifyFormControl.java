@@ -18,6 +18,7 @@ public class ModifyFormControl implements Control {
 	public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 수정화면 bno=3 
 		String bno = req.getParameter("bno");
+		String page = req.getParameter("page");
 		
 		// DB 조회
 		BoardService svc = new BoardServiceImpl();
@@ -32,16 +33,17 @@ public class ModifyFormControl implements Control {
 
 		// view 영역(jsp)로 값을 전달
 		req.setAttribute("board_info", board);
-		req.getRequestDispatcher("WEB-INF/html/modify_board.jsp").forward(req, resp);
+		req.getRequestDispatcher("user/modify_board.tiles").forward(req, resp);
 
 		}
 		else {
 			// 권한 없을 경우
 			req.setAttribute("board_info", board);
 			req.setAttribute("msg", "권한이 없습니다.");
+			req.setAttribute("page", page);
 
 			// 요청 재지정
-			req.getRequestDispatcher("WEB-INF/html/board.jsp").forward(req, resp);
+			req.getRequestDispatcher("user/board.tiles").forward(req, resp);
 		}
 
 	}
