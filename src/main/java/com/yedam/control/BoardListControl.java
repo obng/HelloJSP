@@ -53,7 +53,6 @@ public class BoardListControl implements Control {
 		if (authority == null) {
 			req.getRequestDispatcher("user/board_list.tiles").forward(req, resp);
 		}
-
 		if (authority.equals("User")) {
 			// getRequestDispatcher: 요청재지정
 			req.getRequestDispatcher("user/board_list.tiles").forward(req, resp);

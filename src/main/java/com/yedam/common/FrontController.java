@@ -44,6 +44,9 @@ public class FrontController extends HttpServlet{
 
 		// 기타
 		map.put("/js.do", new JSControl());
+
+		// 댓글 관련
+		map.put("/replyList.do", new ReplyListControl()); // 글번호 -> 댓글 목록
 	}
 	
 	@Override

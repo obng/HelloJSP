@@ -79,6 +79,13 @@
 			<version>3.0.8</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.13.1</version>
+		</dependency>
+
 		<!--	intelliJ 서버 자동 실행	-->
 <!--		<dependency>-->
 <!--			<groupId>org.springframework.boot</groupId>-->

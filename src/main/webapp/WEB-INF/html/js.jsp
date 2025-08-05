@@ -12,7 +12,7 @@
 </head>
 <body>
     <h3>JS연습</h3>
-
+    <%--  1차 js 연습  --%>
     <div style="display: none;">
         ID: <input type="text" id="mid"> <br>
         NAME: <input type="text" id="mname"> <br>
@@ -23,12 +23,15 @@
         <ul id="list"></ul>
     </div>
 
-    <div>
+    <%--  2차 js 연습  --%>
+    <div style="display: none;">
         이름: <input type="text" id="std_name"><br>
         영어: <input type="number" id="std_score"><br>
         <button id="addList">추가</button>
     </div>
-    <div>
+
+    <%--  3차 js 연습  --%>
+    <div style="display: none;">
         <table border="2">
             <thead>
                 <tr>
@@ -45,9 +48,40 @@
         </table>
     </div>
 
+    <div id="show">
+        <table border="2">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>FName</th>
+                    <th>LName</th>
+                    <th>Salary</th>
+                    <th>delete</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div id="item"  style="display: none">
+        <table border="2">
+            <thead>
+            <tr>
+                <th>이름</th>
+                <th>점수</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+
 
 <%--    <script type="text/javascript" src="js/string2.js"></script>--%>
 <%--    <script type="text/javascript" src="js/homework.js"></script>--%>
-    <script type="text/javascript" src="js/data.js"></script>
+<%--    <script type="text/javascript" src="js/data.js"></script>--%>
+<%--    <script type="text/javascript" src="js/array3.js"></script>--%>
+<%--    <script type="text/javascript" src="js/object.js"></script>--%>
+<%--    <script type="text/javascript" src="js/dom.js"></script>--%>
+    <script type="text/javascript" src="js/ajax2.js"></script>
 </body>
 </html>

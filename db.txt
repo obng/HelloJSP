@@ -139,5 +139,77 @@ alter table tbl_board add image varchar2(100);
 select  *
 from    tbl_board;
 
+-- 댓글 테이블 (댓글 번호, 원본 글번호, 내용, 댓글 작성자, 작성일시)
+create table tbl_reply (
+    reply_no    number,
+    board_no    number not null,
+    reply       varchar2(500) not null,
+    replyer     varchar2(10) not null,
+    reply_date  date default sysdate
+);
+
+create sequence reply_seq;
+
+alter table tbl_reply add constraint pk_reply primary key (reply_no);
+
+insert into tbl_reply (reply_no,
+                       board_no,
+                       reply,
+                       replyer)
+values (reply_seq.nextval,
+        150,
+        '150번의 댓글입니다.',
+        'user01');
+
+insert into tbl_reply (reply_no,
+                       board_no,
+                       reply,
+                       replyer)
+values (reply_seq.nextval,
+        150,
+        '150번의 2번 댓글입니다.',
+        'user02');
+
+insert into tbl_reply (reply_no,
+                       board_no,
+                       reply,
+                       replyer)
+values (reply_seq.nextval,
+        150,
+        '150번의 3번 댓글입니다.',
+        'user03');
+
+
+
+insert into tbl_reply (reply_no,
+                       board_no,
+                       reply,
+                       replyer)
+values (reply_seq.nextval,
+        149,
+        '149번의 댓글입니다.',
+        'user01');
+
+insert into tbl_reply (reply_no,
+                       board_no,
+                       reply,
+                       replyer)
+values (reply_seq.nextval,
+        149,
+        '149번의 2번 댓글입니다.',
+        'user02');
+
+insert into tbl_reply (reply_no,
+                       board_no,
+                       reply,
+                       replyer)
+values (reply_seq.nextval,
+        149,
+        '149번의 3번 댓글입니다.',
+        'user03');
+
+select  *
+from    tbl_reply;
+
 
 
