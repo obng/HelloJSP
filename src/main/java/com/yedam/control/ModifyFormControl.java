@@ -31,16 +31,17 @@ public class ModifyFormControl implements Control {
 		if (logId != null && logId.equals(board.getWriter())) {
 
 
-		// view 영역(jsp)로 값을 전달
-		req.setAttribute("board_info", board);
-		req.getRequestDispatcher("user/modify_board.tiles").forward(req, resp);
+			// view 영역(jsp)로 값을 전달
+			req.setAttribute("board_info", board);
+			req.setAttribute("page", page);
+			req.getRequestDispatcher("user/modify_board.tiles").forward(req, resp);
 
 		}
 		else {
 			// 권한 없을 경우
 			req.setAttribute("board_info", board);
 			req.setAttribute("msg", "권한이 없습니다.");
-			req.setAttribute("page", page);
+
 
 			// 요청 재지정
 			req.getRequestDispatcher("user/board.tiles").forward(req, resp);

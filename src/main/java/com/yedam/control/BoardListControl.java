@@ -20,13 +20,13 @@ public class BoardListControl implements Control {
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // 파라미터 (page&searchCondition&keyword
-    	String sc = req.getParameter("searchCondition");
-    	String kw = req.getParameter("keyword");
-    	
     	// WEB-INF/html/register_form.html
     	String page = req.getParameter("page");
+    	String sc = req.getParameter("searchCondition");
+    	String kw = req.getParameter("keyword");
+
     	page = page == null ? "1" : page;
-    	
+
     	// SearchDTO (메소드에 전달할 파라미터)
     	SearchDTO search = new SearchDTO();
     	search.setPage(Integer.parseInt(page));
@@ -52,6 +52,7 @@ public class BoardListControl implements Control {
 
 		if (authority == null) {
 			req.getRequestDispatcher("user/board_list.tiles").forward(req, resp);
+			return;
 		}
 		if (authority.equals("User")) {
 			// getRequestDispatcher: 요청재지정
