@@ -47,6 +47,8 @@ public class FrontController extends HttpServlet{
 
 		// 댓글 관련
 		map.put("/replyList.do", new ReplyListControl()); // 글번호 -> 댓글 목록
+		map.put("/removeReply.do", new RemoveReplyControl());
+		map.put("/addReply.do", new AddReplyControl());
 	}
 	
 	@Override

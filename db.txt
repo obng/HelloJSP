@@ -211,5 +211,9 @@ values (reply_seq.nextval,
 select  *
 from    tbl_reply;
 
-
-
+select b.*
+from   (select  /*+index(r PK_REPLY) */ r.*, rownum rn
+        from    tbl_reply r
+        where   r.board_no = 150) b
+where   b.rn > (:page - 1) * 5
+and     b.rn <= (:page * 5);

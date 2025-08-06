@@ -14,7 +14,28 @@ public class ReplyServiceImpl implements ReplyService {
 
 
     @Override
-    public List<ReplyVO> replyList(int boardNo) {
-        return mapper.selectReply(boardNo);
+    public List<ReplyVO> replyList(int boardNo, int page) {
+        return mapper.selectReply(boardNo, page);
+    }
+
+    @Override
+    public boolean removeReply(int replyNo) {
+        int r = mapper.deleteReply(replyNo);
+
+        if (r > 0) {
+           sqlSession.commit();
+           return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean addReply(ReplyVO reply) {
+        int r = mapper.insertReply(reply);
+        if (r > 0) {
+            sqlSession.commit();
+            return true;
+        }
+        return false;
     }
 }
