@@ -49,6 +49,11 @@ public class FrontController extends HttpServlet{
 		map.put("/replyList.do", new ReplyListControl()); // 글번호 -> 댓글 목록
 		map.put("/removeReply.do", new RemoveReplyControl());
 		map.put("/addReply.do", new AddReplyControl());
+		map.put("/totalReply.do", new TotalCntControl()); // 글등록 bno, {"totalCnt": 78}
+
+		// 기타
+		map.put("/chartData.do", new ChartControl());
+		map.put("/eventList.do", new EventControl()); // 달력 일정목록ㄴ
 	}
 	
 	@Override

@@ -9,4 +9,5 @@ public interface ReplyMapper {
     List<ReplyVO> selectReply(@Param("boardNo") int boardNo, @Param("page") int page);
     int deleteReply(int replyNo);
     int insertReply(ReplyVO reply);
+    int selectCount(int boardNo);
 }

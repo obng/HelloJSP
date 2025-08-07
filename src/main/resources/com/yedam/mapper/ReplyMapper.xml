@@ -8,11 +8,19 @@
 		select b.*
 		from   (select  /* + index(r PK_REPLY) */ r.*, rownum rn
 				from    tbl_reply r
-				where   r.board_no = #{boardNo}) b
+				where   r.board_no = #{boardNo}
+				order by reply_no desc) b
 		where   b.rn > (#{page} - 1) * 5
 		<![CDATA[
 		and     b.rn <= (#{page} * 5)
 		]]>
+		order by reply_no desc
+	</select>
+
+	<select id="selectCount" resultType="int" parameterType="int">
+		select  count(1)
+		from    tbl_reply
+		where   board_no = #{boardNo}
 	</select>
 
 	<delete id="deleteReply" parameterType="int">

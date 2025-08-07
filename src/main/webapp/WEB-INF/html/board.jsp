@@ -62,8 +62,17 @@
     span {
         display: inline-block;
     }
+    li {
+        padding: 10px;
+    }
     ul {
         list-style-type: none;
+    }
+    button {
+        border: none;
+    }
+    .footer {
+        text-align: center;
     }
 </style>
 <style>

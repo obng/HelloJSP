@@ -1,0 +1,29 @@
+package com.yedam.control;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+public class ChartControl implements com.yedam.common.Control {
+    @Override
+    public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Map<String, Integer> map = new HashMap<>();
+
+        map.put("user01", 39);
+        map.put("user03", 27);
+        map.put("user06", 123);
+        map.put("user14", 223);
+        map.put("use23", 12);
+
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String json = gson.toJson(map);
+
+        resp.getWriter().print(json);
+    }
+}

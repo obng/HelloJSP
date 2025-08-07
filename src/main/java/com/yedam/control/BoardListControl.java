@@ -13,6 +13,8 @@ import com.yedam.common.PageDTO;
 import com.yedam.common.SearchDTO;
 import com.yedam.service.BoardService;
 import com.yedam.service.BoardServiceImpl;
+import com.yedam.service.ReplyService;
+import com.yedam.service.ReplyServiceImpl;
 import com.yedam.vo.BoardVO;
 
 public class BoardListControl implements Control {
@@ -32,6 +34,7 @@ public class BoardListControl implements Control {
     	search.setPage(Integer.parseInt(page));
     	search.setSearchCondition(sc);
     	search.setKeyword(kw);
+
     	
     	BoardService svc = new BoardServiceImpl();
     	List<BoardVO> list = svc.boardList(search); // 글목록
@@ -39,12 +42,15 @@ public class BoardListControl implements Control {
     	// 페이징
     	int totalCnt = svc.totalCount(search);
     	PageDTO paging = new PageDTO(Integer.parseInt(page), totalCnt);
+
+		ReplyService rvc = new ReplyServiceImpl();
     
     	// jsp (뷰역활) 페이지에 데이터 전달
     	req.setAttribute("board_list", list);
     	req.setAttribute("paging", paging);
     	req.setAttribute("searchCondition", sc);
     	req.setAttribute("keyword", kw);
+
 
 		// 권한에 따라 템플릿 적용
 		HttpSession session = req.getSession();

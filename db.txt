@@ -217,3 +217,34 @@ from   (select  /*+index(r PK_REPLY) */ r.*, rownum rn
         where   r.board_no = 150) b
 where   b.rn > (:page - 1) * 5
 and     b.rn <= (:page * 5);
+
+-- tbl_event 테이블 생성
+create table tbl_event (
+    title   varchar2(100) not null,
+    start_date   varchar2(20) not null,
+    end_date     varchar2(20)
+);
+
+insert into tbl_event (title,
+                       start_date,
+                       end_date)
+values ('일본 여행',
+        '2025-08-18T00:00:00',
+        '2025-08-21T21:20:00');
+
+insert into tbl_event (title,
+                       start_date,
+                       end_date)
+values ('일본 한달살기',
+        '2026-01-01T00:00:00',
+        '2026-02-01T23:00:00');
+
+select  *
+from    tbl_event;
+
+commit;
+
+select  title,
+        start_date "start",
+        end_date "end"
+from  	tbl_event;

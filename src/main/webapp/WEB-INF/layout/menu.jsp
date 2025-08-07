@@ -16,6 +16,7 @@
       </c:otherwise>
     </c:choose>
     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="js.do">js</a>
+    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="eventList.do">달력</a>
 
     <a class="list-group-item list-group-item-action list-group-item-light p-3"
        href="#!">Status</a>
