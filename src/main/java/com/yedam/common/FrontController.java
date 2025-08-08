@@ -53,7 +53,8 @@ public class FrontController extends HttpServlet{
 
 		// 기타
 		map.put("/chartData.do", new ChartControl());
-		map.put("/eventList.do", new EventControl()); // 달력 일정목록ㄴ
+		map.put("/eventList.do", new EventControl()); // 이벤트 목록
+		map.put("/addEvent.do", new AddEventControl()); // 이벤트 등록 {retCode: "OK"/"NG"}
 	}
 	
 	@Override

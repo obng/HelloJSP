@@ -16,4 +16,14 @@ public class EventServiceImpl implements EventService {
     public List<EventVO> eventList(EventVO event) {
         return mapper.selectEvent(event);
     }
+
+    @Override
+    public boolean addEvent(EventVO event) {
+        int r = mapper.insertEvent(event);
+        if (r > 0) {
+            sqlSession.commit();
+            return true;
+        }
+        return false;
+    }
 }

@@ -11,4 +11,13 @@
 		from  	tbl_event
 	</select>
 
+	<insert id="insertEvent" parameterType="event">
+		insert into tbl_event (title,
+							   start_date,
+							   end_date)
+		values (#{title},
+				#{start},
+				#{end})
+	</insert>
+
 </mapper>
